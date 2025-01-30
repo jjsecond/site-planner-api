@@ -27,3 +27,9 @@ Any time a new dependency is added the requirements file needs to be updated.
 - `python index.py`
 
 
+## Run PSQL Locally
+
+TODO: Dockerise it
+
+- `psql postgres://johnjameshodgins@localhost:5432/johnjameshodgins`
+

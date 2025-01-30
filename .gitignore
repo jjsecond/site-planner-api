@@ -1,3 +1,4 @@
 # Ignore the virtual environment folder as this should be created on each user's machine
 **/venv 
 **/instance/*
+*/.env
