@@ -32,7 +32,10 @@ class Database:
             self._connection = None
 
     def get_connection(self):
-        """Return the existing database connection"""
+        """Return the existing database connection, or reinitialize if closed"""
+        if self._connection is None or self._connection.closed:
+            print("Re-establishing database connection...")
+            self._initialize_connection()
         return self._connection
 
 # Export instance

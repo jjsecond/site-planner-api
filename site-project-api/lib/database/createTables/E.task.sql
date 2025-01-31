@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS task (
     company_id INTEGER NOT NULL REFERENCES company(id) ON DELETE CASCADE,
     task_name VARCHAR(100) NOT NULL,
     task_type task_type NOT NULL DEFAULT 'first_fix', 
-    trade VARCHAR(50) NOT NULL,
+    trade VARCHAR(50),
     status task_status_type NOT NULL DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
