@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS company (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    manager VARCHAR(100) NOT NULL,
+    contact_num VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);

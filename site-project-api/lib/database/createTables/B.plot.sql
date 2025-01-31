@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS plot (
+    id SERIAL PRIMARY KEY,
+    site_id INTEGER NOT NULL REFERENCES site(id) ON DELETE CASCADE,
+    plot_number INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
