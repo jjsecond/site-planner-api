@@ -33,3 +33,12 @@ TODO: Dockerise it
 
 - `psql postgres://johnjameshodgins@localhost:5432/johnjameshodgins`
 
+
+## Additional Documentation
+
+### DB Design
+
+The DB is a postgres database.
+
+The design can be found at: [Site DB Design](docs/siteDBDesign.pdf)
+
