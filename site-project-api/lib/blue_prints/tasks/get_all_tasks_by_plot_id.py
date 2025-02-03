@@ -1,14 +1,15 @@
 from flask import jsonify, request
-from lib.database.initialTableCreation import db_instance
+from lib.database.database import get_connection, release_connection
 import psycopg2.extras
 
 
 def process_get_all_tasks_by_plot_id():
     """Get all tasks linked to a plot on a site"""
+    db = None
     try:
         plotId = request.args.get('plotId')
 
-        db = db_instance.get_connection()
+        db = get_connection()
         # This is used to return the result as a dictionary 
         with db.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
     
@@ -31,3 +32,6 @@ def process_get_all_tasks_by_plot_id():
     except Exception as e:
         print("Error getting all tasks for a plot: ", e)
         return jsonify({"error": "Internal Server Error"}), 500
+    finally:
+          if db:
+            release_connection(db)

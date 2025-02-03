@@ -1,11 +1,12 @@
 from flask import jsonify
-from lib.database.initialTableCreation import db_instance
+from lib.database.database import get_connection, release_connection
 import psycopg2.extras
 
 def process_delete_all_tables():
     """Delete all tables and rows"""
+    db = None
     try:
-        db = db_instance.get_connection()
+        db = get_connection()
         # This is used to return the result as a dictionary 
         with db.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
     
@@ -27,3 +28,6 @@ def process_delete_all_tables():
     except Exception as e:
         print("Error getting all sites: ", e)
         return jsonify({"error": "Internal Server Error"}), 500
+    finally:
+        if db:
+            release_connection(db)

@@ -1,4 +1,4 @@
-from lib.database.database import db_instance 
+from lib.database.database import get_connection, release_connection
 import os
 
 SQL_FOLDER_TABLES = "lib/database/create_tables"
@@ -12,8 +12,9 @@ def execute_sql_file(cursor, file_path):
         print(f"Executed {file_path}")
 
 def create_tables():
+    db = None
     try:
-        db = db_instance.get_connection()
+        db = get_connection()
         cur = db.cursor()
 
         sql_table_files = sorted(f for f in os.listdir(SQL_FOLDER_TABLES) if f.endswith(".sql"))
@@ -27,10 +28,14 @@ def create_tables():
         print("All tables and enums created successfully!")
     except Exception as e:
         print("Error creating tables or enums:", e)
+    finally:
+        if db:
+            release_connection(db)
 
 def seed_db():
+    db = None
     try:
-        db = db_instance.get_connection()
+        db = get_connection()
         cur = db.cursor()
 
         print("Got to here")
@@ -47,3 +52,6 @@ def seed_db():
 
     except Exception as e:
         print("Error adding rows to tables:", e)
+    finally:
+        if db:
+            release_connection(db)
