@@ -1,8 +1,8 @@
 from lib.database.database import db_instance 
 import os
 
-SQL_FOLDER_TABLES = "lib/database/createTables"
-SQL_FOLDER_DUMMY_DATA = "lib/database/dummyData"
+SQL_FOLDER_TABLES = "lib/database/create_tables"
+SQL_FOLDER_DUMMY_DATA = "lib/database/dummy_data"
 
 def execute_sql_file(cursor, file_path):
     """ Reads and executes an SQL file. """
