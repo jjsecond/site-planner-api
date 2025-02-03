@@ -1,4 +1,4 @@
-INSERT INTO site (manager, site_name, address, site_contact_num, site_plan_url)
+INSERT INTO sites (manager, site_name, address, site_contact_num, site_plan_url)
 VALUES
 ('John Guy', 'Evergreen', '1 sycamore st, Birmingham, b23-ate', '07722910293', 'siteOne'),
 ('Sandra Sands', 'Everbrown', '10 edg st, Nottingham, N21-wt1', '07709298293', 'siteTwo'),

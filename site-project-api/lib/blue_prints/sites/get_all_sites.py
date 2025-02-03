@@ -9,7 +9,7 @@ def process_get_all_sites():
         # This is used to return the result as a dictionary 
         with db.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
     
-            cur.execute('''SELECT * FROM site''') 
+            cur.execute('''SELECT * FROM sites''') 
 
             data = cur.fetchall()
 

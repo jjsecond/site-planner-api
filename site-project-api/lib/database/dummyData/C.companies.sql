@@ -1,4 +1,4 @@
-INSERT INTO company (name, manager, contact_num)
+INSERT INTO companies (name, manager, contact_num)
 VALUES 
 ('GroundWorks are us', 'Greg', '2312131'),
 ('Bricklayers', 'Tom', '2193883'),

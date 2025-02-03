@@ -1,4 +1,4 @@
-INSERT INTO site_company (site_id, company_id)
+INSERT INTO site_companies (site_id, company_id)
 VALUES 
 -- site one all companies
 (1, 1),

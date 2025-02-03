@@ -14,9 +14,9 @@ def process_get_all_tasks_by_plot_id():
     
             cur.execute('''
             SELECT s.id AS site_id, p.plot_number, t.task_name, t.task_type, t.trade, t.status, t.created_at AS task_created_at, t.updated_at AS task_update_at  
-            FROM site AS s
-            JOIN plot AS p ON s.id = p.site_id
-            JOIN task AS t ON t.plot_id = p.id
+            FROM sites AS s
+            JOIN plots AS p ON s.id = p.site_id
+            JOIN tasks AS t ON t.plot_id = p.id
             WHERE s.id = %(plotId)s
             ''', {'plotId': plotId})
 

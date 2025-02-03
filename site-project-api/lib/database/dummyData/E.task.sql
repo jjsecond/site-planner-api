@@ -1,4 +1,4 @@
-INSERT INTO task (site_id, plot_id, company_id, task_name, task_type, trade)
+INSERT INTO tasks (site_id, plot_id, company_id, task_name, task_type, trade)
 VALUES 
 -- site one all companies
 (1, 1, 1, 'Build foundations', 'ground_works', 'ground workers'),
