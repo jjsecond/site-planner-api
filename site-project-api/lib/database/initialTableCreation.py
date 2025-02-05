@@ -38,8 +38,6 @@ def seed_db():
         db = get_connection()
         cur = db.cursor()
 
-        print("Got to here")
-
         sql_dummy_data_files = sorted(f for f in os.listdir(SQL_FOLDER_DUMMY_DATA) if f.endswith(".sql"))
 
         for sql_data_file in sql_dummy_data_files:
