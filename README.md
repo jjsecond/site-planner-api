@@ -24,7 +24,10 @@ Any time a new dependency is added the requirements file needs to be updated.
 
 ## Run locally
 
-- `python index.py`
+Need to be running the virtual environment if not already:
+
+- `source venv/bin/activate`
+- `python app.py`
 
 
 ## Run PSQL Locally
@@ -41,21 +44,3 @@ TODO: Dockerise it
 The DB is a postgres database.
 
 The design can be found at: [Site DB Design](docs/siteDBDesign.pdf)
-
-
-
-## Drop all tables
-
-I only need this until dockerised
-
-```
-DO $$ 
-DECLARE 
-    r RECORD;
-BEGIN 
-    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') 
-    LOOP 
-        EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
-    END LOOP;
-END $$;
-```
